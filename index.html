@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080b10"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon.svg">
+<title>GharHash iPhone</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="brand"><b>GH</b><span>GharHash</span></div><div class="pill">IPHONE • LOCAL</div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">MOBILE HASH LAB</div><h1>Audit.<i>Learn.</i></h1><p>Standalone browser-based hash auditing for your own lab, CTFs, and test data.</p></div><div id="engine" class="health">● Engine ready</div></section>
+<div class="grid">
+<section>
+<div class="card"><h2>Hash Input</h2>
+<textarea id="hash" spellcheck="false" placeholder="Paste a test hash…"></textarea>
+<div class="actions"><button id="detect" class="ghost">Detect hash</button><select id="hashType"><option value="auto">Automatic</option><option value="md5">MD5</option><option value="sha1">SHA-1</option><option value="sha256">SHA-256</option><option value="sha512">SHA-512</option></select></div>
+<div id="detected" class="notice">No hash detected yet.</div></div>
+
+<div class="card"><h2>Attack controls</h2>
+<label>Attack mode</label><select id="mode"><option value="dictionary">Dictionary</option><option value="mask">Mask</option></select>
+<div id="dictBox"><label>Wordlist</label><input id="wordlist" type="file" accept=".txt,.lst,.dic,.wordlist,text/plain"></div>
+<div id="maskBox" class="hidden"><label>Mask</label><input id="mask" value="?d?d?d?d" placeholder="?d?d?d?d"></div>
+<div class="row"><div><label>Maximum candidates</label><input id="limit" type="number" value="100000" min="1" max="1000000"></div>
+<div><label>Workers</label><select id="workers"><option>1</option><option>2</option><option>4</option></select></div></div>
+<div class="actions"><button id="start">Start audit</button><button id="stop" class="ghost" disabled>Stop</button></div>
+<p class="notice">Runs entirely inside this browser tab. Keep this page open while an audit is running.</p></div>
+</section>
+<aside>
+<div class="card"><div class="sectionhead"><h2>Progress</h2><span id="status">Idle</span></div>
+<div class="bar"><i id="bar"></i></div><div class="stats"><span id="pct">0%</span><span id="count">0 / 0</span></div><div id="result" class="result"></div></div>
+<div class="card"><h2>Recent audits</h2><div id="history"><p class="notice">No audits yet.</p></div><button id="clear" class="ghost full">Clear history</button></div>
+<div class="card"><h2>Supported browser engine</h2><p class="notice">MD5, SHA-1, SHA-256 and SHA-512. The app uses Web Crypto where possible; MD5 is implemented locally for lab use.</p></div>
+</aside>
+</div></main>
+<script src="app.js"></script></body></html>
